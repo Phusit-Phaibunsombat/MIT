@@ -1,0 +1,34 @@
+{
+  "contracts/FindminMax.sol": {
+    "__sources__": {
+      "contracts/FindminMax.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.26;\r\n\r\ncontract FindMinMaxValue {\r\n\r\n    uint8 public maxValue_uint8 = type(uint8).max;\r\n    uint16 public maxValue_uint16 = type(uint16).max;\r\n    uint32 public maxValue_uint32 = type(uint32).max;\r\n    uint256 public maxValue_uint256 = type(uint256).max;\r\n\r\n    int8 public minValue_uint8 = type(int8).max;\r\n    int16 public minValue_uint16 = type(int16).max;\r\n    int32 public minValue_uint32 = type(int32).max;\r\n    int256 public minValue_uint256 = type(int256).max;\r\n}",
+        "file": "contracts/FindminMax.sol"
+      }
+    }
+  },
+  "contracts/HelloWorld.sol": {
+    "__sources__": {
+      "contracts/HelloWorld.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.26;\r\ncontract HelloWorld{\r\n    string public message;\r\n\r\n    constructor(string memory newMessage){\r\n        message = newMessage;\r\n    }\r\n    \r\n\r\n    function getMessage() public view returns (string memory) {\r\n        return message;\r\n    }\r\n\r\n    function setMessage(string memory newMessage) public{\r\n        message = newMessage;\r\n    }\r\n}",
+        "file": "contracts/HelloWorld.sol"
+      }
+    }
+  },
+  "contracts/MathOperation.sol": {
+    "__sources__": {
+      "contracts/MathOperation.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.26;\r\ncontract MathOperation{\r\n    int public balance;\r\n\r\n    constructor(){\r\n    }\r\n    \r\n\r\n    function decreasa() public {\r\n        balance -= 1 ;\r\n    }\r\n    \r\n\r\n    function increase() public {\r\n        balance += 1 ;\r\n    }\r\n}",
+        "file": "contracts/MathOperation.sol"
+      }
+    }
+  },
+  "contracts/EasyBank.sol": {
+    "__sources__": {
+      "contracts/EasyBank.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.26;\r\n\r\ncontract EasyBank{\r\n    mapping(address => uint256) balances;\r\n\r\n    function getBalance() public view returns (uint256) {\r\n        return balances[msg.sender];\r\n    }\r\n\r\n    function deposit() public payable {\r\n        balances[msg.sender] + msg.value;\r\n    }\r\n\r\n    function withdraw(uint256 amount) public {\r\n    require(balances[msg.sender] >= amount, \"Insufficient money to withdraw!!!\");\r\n\r\n    balances[msg.sender] = balances[msg.sender] -amount;\r\n    (bool success, ) = msg.sender.call{value: amount}(\"\");\r\n    require(success, \"Withdraw failed!!\");\r\n}\r\n}",
+        "file": "contracts/EasyBank.sol"
+      }
+    }
+  }
+}
