@@ -15,7 +15,6 @@ contract EasyBank{
 
     function withdraw(uint256 amount) public {
     require(balances[msg.sender] >= amount, "Insufficient money to withdraw!!!");
-
     balances[msg.sender] = balances[msg.sender] -amount;
     (bool success, ) = msg.sender.call{value: amount}("");
     require(success, "Withdraw failed!!");
