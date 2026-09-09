@@ -55,8 +55,8 @@ contract Voting {
         require(!isVoted[msg.sender], "ALREADY VOTED");
         require(isValidCandidate(candidate), "INVALID CANDIDATE");
 
-        isVoted[msg.sender] == true;
-        votesReceived[candidate]++;
+        isVoted[msg.sender] = true;
+        votesReceived[candidate] += 1;
     }
 
     function totalVotesFor(string memory candidate)
